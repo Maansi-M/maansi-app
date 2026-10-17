@@ -3,7 +3,8 @@ phases:
   pre_build:
     commands:
       - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $REGISTRY
-      - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c1-7)
+      - IMAGE_TAG=build-$CODEBUILD_BUILD_NUMBER
+      #- IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c1-7)
   build:
     commands:
       - docker build -t $REPO_URI:latest -t $REPO_URI:$IMAGE_TAG .
