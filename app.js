@@ -3,7 +3,7 @@ const os = require('os');
 const app = express();
 const VERSION = process.env.APP_VERSION || 'v1';
 
-// Log every request as one JSON line (used later in Logs Insights)
+// Log every request as one JSON line (used later in Logs Insights) 
 app.use((req, res, next) => {
   const start = Date.now();
   res.on('finish', () => {
@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
   //res.send(`<h1>Maansi App - ${VERSION}</h1><p>Served by: ${os.hostname()}</p>`);
-    res.send(`<h1>Maansi App - ${VERSION}</h1><p>Release 2 - rolling deployment test</p><p>Served by: ${os.hostname()}</p>`);
+    res.send(`<h1>Maansi App - ${VERSION}</h1><p>Release 3 - deployed by pipeline</p><p>Served by: ${os.hostname()}</p>`);
 });
 
 app.get('/health', (req, res) => res.status(200).send('ok'));
