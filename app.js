@@ -19,7 +19,8 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.send(`<h1>Maansi App - ${VERSION}</h1><p>Served by: ${os.hostname()}</p>`);
+  //res.send(`<h1>Maansi App - ${VERSION}</h1><p>Served by: ${os.hostname()}</p>`);
+    res.send(`<h1>Maansi App - ${VERSION}</h1><p>Release 2 - rolling deployment test</p><p>Served by: ${os.hostname()}</p>`);
 });
 
 app.get('/health', (req, res) => res.status(200).send('ok'));
